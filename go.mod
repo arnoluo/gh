@@ -1,4 +1,4 @@
-module gh
+module github.com/arnoluo/gh
 
 go 1.15
 

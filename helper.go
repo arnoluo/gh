@@ -2,9 +2,10 @@ package gh
 
 import (
 	"errors"
-	t "gh/types"
 	"os"
 	"reflect"
+
+	t "github.com/arnoluo/gh/types"
 )
 
 var (

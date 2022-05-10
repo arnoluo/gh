@@ -1,9 +1,9 @@
 package gh
 
 import (
-	t "gh/types"
 	"testing"
 
+	t "github.com/arnoluo/gh/types"
 	"github.com/stretchr/testify/assert"
 )
 
