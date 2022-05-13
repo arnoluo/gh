@@ -37,8 +37,19 @@ func Int64(i t.Itf, defaultValue t.LI) t.LI {
 	}
 }
 
+func IntValue(itf t.Itf, defaultValue t.I) t.I {
+	switch itf.(type) {
+	case uint, uint8, uint16, uint32, uint64, int, int8, int16, int32, int64, float32, float64:
+		return itf.(t.I)
+	case string:
+		return Str.Int(itf.(string), -1)
+	default:
+		return defaultValue
+	}
+}
+
 func Uint64(i t.Itf) (uint64, error) {
-	var v int64
+	var v t.LI
 	switch i.(type) {
 	case uint, uint8, uint16, uint32, int, int8, int16, int32, int64, float32, float64:
 		v = i.(t.LI)
