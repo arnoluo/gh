@@ -26,6 +26,28 @@ func EnvInt(name t.S, defaultValue t.I) t.I {
 	return Str.Int(Env(name), defaultValue)
 }
 
+func Int64(i t.Itf, defaultValue t.LI) t.LI {
+	switch i.(type) {
+	case uint, uint8, uint16, uint32, uint64, int, int8, int16, int32, int64, float32, float64:
+		return i.(t.LI)
+	case string:
+		return t.LI(Str.Int(i.(string), -1))
+	default:
+		return defaultValue
+	}
+}
+
+func Float64(i t.Itf, defaultValue t.F) t.F {
+	switch i.(type) {
+	case uint, uint8, uint16, uint32, uint64, int, int8, int16, int32, int64, float32, float64:
+		return i.(t.F)
+	case string:
+		return t.F(Str.Int(i.(string), -1))
+	default:
+		return defaultValue
+	}
+}
+
 // 结构同名称转换
 func StructTo(src, dst t.Itf) error {
 	srcType := reflect.TypeOf(src)
